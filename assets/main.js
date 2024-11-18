@@ -2226,7 +2226,7 @@
 								this.$video.src = this.src;
 								this.$video.poster = this.poster;
 								this.$video.autoplay = true;
-								this.$video.muted = true;
+								this.$video.muted = false;
 								this.$video.preload = 'auto';
 								this.$video.loop = this.loop;
 								this.$video.playsInline = true;
