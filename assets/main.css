@@ -584,53 +584,39 @@ h1.style2 span.p:nth-child(n + 2), h2.style2 span.p:nth-child(n + 2), h3.style2 
 	transform: scale(1.025);
 }
 
-#buttons02 .n01 svg {
-	fill: #FFFFFF;
-}
-
 #buttons02 .n01 {
-	background-color: transparent;
-	color: #FFFFFF;
-	background-image: linear-gradient(300deg, #1DA1F1 0%, transparent 100%);
-}
-
-#buttons02 .n01:hover {
-	background-color: #FF0000 !important;
-}
-
-#buttons02 .n02 {
 	background-color: #FAB824;
 	background-image: linear-gradient(300deg, #F04E35 0%, rgba(250,184,36,0.008) 100%);
 }
 
-#buttons02 .n02 svg {
+#buttons02 .n01 svg {
 	fill: #88D6E3;
 }
 
-#buttons02 .n02:hover {
+#buttons02 .n01:hover {
 	background-color: #FF1919 !important;
 }
 
-#buttons02 .n03 svg {
+#buttons02 .n02 svg {
 	fill: #000000;
 }
 
-#buttons02 .n03 {
+#buttons02 .n02 {
 	background-color: #000000;
 	color: #FFFFFF;
 	background-image: linear-gradient(300deg, #80F5D2 0%, rgba(0,0,0,0.008) 100%);
 }
 
-#buttons02 .n03:hover {
+#buttons02 .n02:hover {
 	background-color: #FF0000 !important;
 }
 
-#buttons02 .n04 {
+#buttons02 .n03 {
 	background-color: #9C0BFB;
 	background-image: linear-gradient(300deg, #F3982F 0%, rgba(156,11,251,0.008) 100%);
 }
 
-#buttons02 .n04:hover {
+#buttons02 .n03:hover {
 	background-color: #FF0000 !important;
 }
 
