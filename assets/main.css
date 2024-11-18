@@ -58,7 +58,6 @@ body:after {
 	content: '';
 	display: block;
 	height: 100%;
-	backdrop-filter: blur(30px);
 	left: 0;
 	opacity: 0;
 	pointer-events: none;
