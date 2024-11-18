@@ -604,7 +604,7 @@
 							// Mark as ready.
 								$body.classList.add('is-ready');
 		
-						}, 2000);
+						}, 5000);
 		
 				}, 100);
 			};
@@ -2148,6 +2148,126 @@
 			},
 		
 		};
+	
+	// Video backgrounds.
+		/**
+		 * Video background.
+		 * @param {string} id ID.
+		 * @param {object} settings Settings.
+		 */
+		function videoBackground(id, settings) {
+		
+			var _this = this;
+		
+			this.id = id;
+			this.src = settings.src;
+			this.poster = settings.poster;
+			this.position = settings.position;
+			this.loop = settings.loop;
+			this.$target = $(settings.target);
+			this.$video = null;
+		
+			// Init.
+				this.init();
+		
+		};
+		
+			/**
+			 * Determines if the client can autoplay a video.
+			 * @return {bool} True if yes, false if no.
+			 */
+			videoBackground.prototype.autoplay = function() {
+		
+				// Not iOS or Android? Ok.
+					if (client.os != 'ios'
+					&&	client.os != 'android'
+					&&	client.os != 'undefined')
+						return true;
+		
+				// Check OS.
+					switch (client.os) {
+		
+						case 'ios':
+		
+							if (client.osVersion >= 10
+							&& (client.browser == 'safari' || client.browser == 'chrome'))
+								return true;
+		
+							break;
+		
+						case 'android':
+		
+							if ((client.browser == 'chrome' && client.browserVersion >= 54)
+							||	(client.browser == 'firefox' && client.browserVersion >= 49))
+								return true;
+		
+							break;
+		
+						default:
+							break;
+		
+					}
+		
+				// Fail for everyone else.
+					return false;
+		
+			};
+		
+			/**
+			 * Initializes the vieo background.
+			 */
+			videoBackground.prototype.init = function() {
+		
+				// Autoplay allowed? Use <video> element.
+					if (this.autoplay()) {
+		
+						// Build element.
+							this.$video = document.createElement('video');
+								this.$video.src = this.src;
+								this.$video.poster = this.poster;
+								this.$video.autoplay = true;
+								this.$video.muted = true;
+								this.$video.preload = 'auto';
+								this.$video.loop = this.loop;
+								this.$video.playsInline = true;
+								this.$video.disablePictureInPicture = true;
+								this.$video.disableRemotePlayback = true;
+								this.$video.setAttribute('webkit-playsinline', '');
+								this.$video.setAttribute('muted', '');
+								this.$video.addEventListener('canplay', function(event) {
+									this.play();
+								});
+		
+						// Add to target.
+							this.$target.appendChild(this.$video);
+		
+						// Start playing.
+							this.$video.play();
+		
+					}
+		
+				// Otherwise, use fallback image.
+					else
+						this.$target.style.backgroundImage = 'url(\'' + this.poster + '\')';
+		
+			};
+	
+	// Initialize background.
+		(function() {
+		
+			var $bg = document.createElement('div');
+				$bg.id = 'bg';
+				$body.insertBefore($bg, $body.firstChild);
+		
+			new videoBackground('bg', {
+				target: '#bg',
+				src: 'assets/videos/bg.mp4',
+				poster: 'assets/videos/bg.mp4.jpg',
+				position: 'center',
+				loop: true
+			});
+		
+		})();
 	
 	// Initialize "On Visible" animations.
 		onvisible.add('#image01', { style: 'zoom-out', speed: 2000, intensity: 10, threshold: 3, delay: 0, replay: false });
