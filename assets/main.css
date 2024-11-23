@@ -34,7 +34,6 @@ body {
 	transform: scale(1);
 	width: 100vw;
 	z-index: 0;
-	backdrop-filter: blur(10px);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -48,7 +47,6 @@ body {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	backdrop-filter: blur(10px);
 }
 
 body:after {
