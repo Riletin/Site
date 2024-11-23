@@ -2277,7 +2277,6 @@
 		onvisible.add('.buttons.style1', { style: 'slide-right', speed: 1000, intensity: 5, threshold: 1, delay: 0, stagger: 250, staggerOrder: 'random', staggerSelector: ':scope > li', replay: true });
 		onvisible.add('.container.style2', { style: 'fade-in-background', speed: 2000, intensity: 5, threshold: 3, delay: 0, replay: true });
 		onvisible.add('.icons.style1', { style: 'blur-in', speed: 2000, intensity: 10, threshold: 5, delay: 0, stagger: 5000, staggerOrder: 'random', staggerSelector: ':scope > li', replay: false });
-		onvisible.add('.container.style1', { style: 'zoom-out', speed: 2000, intensity: 10, threshold: 5, delay: 0, replay: false });
 	
 	// Run ready handlers.
 		ready.run();
